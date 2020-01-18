@@ -53,7 +53,13 @@
           <div class="coll-lg-6">
             <div class="container">
                  <div class="row main-form">
-                    <form class="" method="post" action="mailto:manoczkov89@mail.ru" enctype="text/plain">
+                    <form class="" method="post" action="main.php" enctype="text/plain">
+
+                      <!-- Hidden Required Fields -->
+		                  <input type="hidden" name="project_name" value="DGSU site test">
+		                  <input type="hidden" name="admin_email" value="manockov@outlook.com">
+	                  	<input type="hidden" name="form_subject" value="Form order">
+	                  	<!-- END Hidden Required Fields -->
                          
                     <div class="form-group">
                     <label for="name" class="cols-sm-2 control-label">Ваше имя</label>
@@ -74,6 +80,16 @@
                          </div>
                          </div>
                          </div>
+
+                         <div class="form-group">
+                          <label for="phone" class="cols-sm-2 control-label">Ваш Телефон</label>
+                           <div class="cols-sm-10">
+                           <div class="input-group">
+                           <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                           <input type="text" class="form-control" name="phone" id="email" placeholder="Введите ваш Телефон"/>
+                           </div>
+                           </div>
+                           </div>
                         
                          <div class="form-group ">
                          <input target="_blank" type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Заказать">
@@ -99,7 +115,7 @@
       </div>
     </div>
 
-
+    <script src="/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
