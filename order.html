@@ -55,11 +55,11 @@
                  <div class="row main-form">
                     <form>
 
-                      <!-- Hidden Required Fields -->
+<!--                      
 		                  <input type="hidden" name="project_name" value="DGSU site test">
 		                  <input type="hidden" name="admin_email" value="obr66139@bcaoo.com">
 	                  	<input type="hidden" name="form_subject" value="Form order">
-	                  	<!-- END Hidden Required Fields -->
+	                  
                          
                     <div class="form-group">
                     <label for="name" class="cols-sm-2 control-label">Ваше имя</label>
@@ -93,8 +93,22 @@
                         
                          <div class="form-group ">
                          <input target="_blank" type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Заказать">
-                         </div>
-                      </form>
+                         </div> -->
+                      
+                      
+                         <form action="mail.php" metod="POST" name="f1">
+                          <input type="text" placeholder="Ваше имя" name="name1" required=""><br><br>
+                          <input type="email" placeholder="Ваш email" name="email1" required="required"><br><br>
+                          
+                          <textarea placeholder="Ваш текст" name="text" required="required"></textarea><br><br>
+                          
+                          <input type="submit" value="ЗАКАЗАТЬ" name="sab">
+                          
+                          </form>
+                      
+                      
+                      
+                        </form>
                             
 
                      

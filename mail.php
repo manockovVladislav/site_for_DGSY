@@ -1,58 +1,35 @@
+
+<meta charset="utf-8"> 
 <?php
+$urok="Урок 22";
+error_reporting( E_ERROR );   //Отключение предупреждений и нотайсов (warning и notice) на сайте
+// создание переменных из полей формы		
+if (isset($_POST['name1']))			{$name1			= $_POST['name1'];		if ($name1 == '')	{unset($name1);}}
+if (isset($_POST['email1']))		{$email1		= $_POST['email1'];		if ($email1 == '')	{unset($email1);}}
+if (isset($_POST['text']))			{$text			= $_POST['text'];		if ($text == '')	{unset($text);}}
+if (isset($_POST['sab']))			{$sab			= $_POST['sab'];		if ($sab == '')		{unset($sab);}}
+//стирание треугольных скобок из полей формы
+if (isset($name1) ) {
+$name1=stripslashes($name1);
+$name1=htmlspecialchars($name1);
+}
+if (isset($email1) ) {
+$email1=stripslashes($email1);
+$email1=htmlspecialchars($email1);
+}
+if (isset($text) ) {
+$text=stripslashes($text);
+$text=htmlspecialchars($text);
+}
+// адрес почты куда придет письмо
+$address="manockov@outlook.com";
+// текст письма 
+$note_text="Тема : $urok \r\nИмя : $name1 \r\n Email : $email1 \r\n Дополнительная информация : $text";
 
-$method = $_SERVER['REQUEST_METHOD'];
-
-//Script Foreach
-$c = true;
-if ( $method === 'POST' ) {
-
-	$project_name = trim($_POST["project_name"]);
-	$admin_email  = trim($_POST["admin_email"]);
-	$form_subject = trim($_POST["form_subject"]);
-
-
-	foreach ( $_POST as $key => $value ) {
-		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
-			$message .= "
-			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
-			</tr>
-			";
-		}
-	
-	}
-} else if ( $method === 'GET' ) {
-
-	$project_name = trim($_GET["project_name"]);
-	$admin_email  = trim($_GET["admin_email"]);
-	$form_subject = trim($_GET["form_subject"]);
-
-
-	foreach ( $_GET as $key => $value ) {
-		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
-			$message .= "
-			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
-			</tr>
-			";
-		}
-	}
+if (isset($name1)  &&  isset ($sab) ) {
+mail($address,$urok,$note_text,"Content-type:text/plain; windows-1251"); 
+// сообщение после отправки формы
+echo "<p style='color:#009900;'>Уважаемый(ая) <b>$name1</b> Ваше письмо отправленно успешно. <br> Спасибо. <br>Вам скоро ответят на почту <b> $email1</b>.</p>";
 }
 
-$message = "<table style='width: 100%;'>$message</table>";
-
-function adopt($text) {
-	return '=?UTF-8?B?'.Base64_encode($text).'?=';
-}
-
-$headers = "MIME-Version: 1.0" . PHP_EOL .
-"Content-Type: text/html; charset=utf-8" . PHP_EOL .
-'From: '.adopt($project_name).' <'.$admin_email.'>' . PHP_EOL .
-'Reply-To: '.$admin_email.'' . PHP_EOL;
-
-mail($admin_email, adopt($form_subject), $message, $headers );
-
-
-
+?>
