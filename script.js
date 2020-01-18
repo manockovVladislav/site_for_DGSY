@@ -18,8 +18,3 @@
 // 	});
 
 // });
-
-
-
-function changeurl(){eval(self.location="https://glacial-meadow-03048.herokuapp.com/index.html");}
-window.setTimeout("changeurl();",3000);
