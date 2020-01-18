@@ -5,7 +5,7 @@ $(document).ready(function() {
 		var th = $(this);
 		$.ajax({
 			type: "POST",
-			url: "../mail.php", //Change
+			url: "https://glacial-meadow-03048.herokuapp.com/mail.php", //Change
 			data: th.serialize()
 		}).done(function() {
 			alert("Thank you!");
