@@ -53,15 +53,15 @@
           <div class="coll-lg-6">
             <div class="container">
                  <div class="row main-form">
-                    <form>
+                    <!-- <form> -->
 
                       <!-- Hidden Required Fields -->
-		                  <input type="hidden" name="project_name" value="DGSU site test">
+		                  <!-- <input type="hidden" name="project_name" value="DGSU site test">
 		                  <input type="hidden" name="admin_email" value="manoczkov89@mail.ru">
-	                  	<input type="hidden" name="form_subject" value="Form order">
+	                  	<input type="hidden" name="form_subject" value="Form order"> -->
 	                  	<!-- END Hidden Required Fields -->
                          
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                     <label for="name" class="cols-sm-2 control-label">Ваше имя</label>
                     <div class="cols-sm-10">
                     <div class="input-group">
@@ -94,7 +94,19 @@
                          <div class="form-group ">
                          <input target="_blank" type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Заказать">
                          </div>
-                         </form>
+                      </form> -->
+                            
+
+                      <form action="send.php" method="post">
+
+                        Ваше имя <input type="text" name="first_name"><br>
+                        Email: <input type="text" name="email" required placeholder="Обязательное поле"><br>
+                        Сообщение:<br>
+                        <textarea rows="5" name="message" cols="30"></textarea><br>
+                        <input type="submit" name="submit" value="Submit">
+                        </form>
+
+
                          </div>
                          </div>
                 </div>
