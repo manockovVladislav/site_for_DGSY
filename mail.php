@@ -4,6 +4,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 //Script Foreach
 $c = true;
+$message = "";
 if ( $method === 'POST' ) {
 
 	$project_name = trim($_POST["project_name"]);
@@ -16,8 +17,7 @@ if ( $method === 'POST' ) {
 			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
 				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
 				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
-			</tr>
-			";
+			</tr>";
 		}
 	}
 } else if ( $method === 'GET' ) {
